@@ -20,6 +20,10 @@ app.use(express.static('server/public'));
 
 app.get('/treats', function (req, res) {
   console.log('in /treats');
+  console.log('req.query.id', req.query);
+  var query = req.query;
+  console.log(req.query);
+
   pg.connect(connectionString, function (err, client, done) {
     if (err){
       console.log(err);
@@ -37,6 +41,8 @@ app.get('/treats', function (req, res) {
       });//end queryResults function
     }//end else
   });//end pg connect
+
+
 });//end app.get
 
 app.post('/treats', urlencodedParser, function (req, res) {
@@ -61,24 +67,3 @@ app.post('/treats', urlencodedParser, function (req, res) {
     });
   });//end pg connect
 });//end app.post
-
-app.get('/treats?q=', function (req, res) {
-  console.log('in /treats');
-  pg.connect(connectionString, function (err, client, done) {
-    if (err){
-      console.log(err);
-    }else{
-      var allTreats = [];
-      var queryResults = client.query('SELECT * FROM treats');
-      console.log(queryResults);
-      queryResults.on('row', function (row) {
-        allTreats.push(row);
-      });
-      console.log('alltreats', allTreats[0]);
-      queryResults.on('end', function () {
-        done();
-         return res.json(allTreats);
-      });//end queryResults function
-    }//end else
-  });//end pg connect
-});//end app.get

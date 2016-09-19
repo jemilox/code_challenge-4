@@ -5,10 +5,11 @@ $(document).ready(function () {
 
   /**---------- Event Handling ----------**/
   $('#searchButton').on('click', function (event) {
+    console.log('in search button');
     event.preventDefault();
 
     var queryString = $('#search').val();
-
+    console.log(queryString);
     searchTreats(queryString);
   });
 
@@ -47,6 +48,7 @@ $(document).ready(function () {
 
   // GET /treats?q=thing
   function searchTreats(query) {
+    console.log('query', query);
     $.ajax({
       method: 'GET',
       url: '/treats?q=' + query,
