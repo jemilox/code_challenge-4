@@ -1,11 +1,25 @@
 {
-  "name": "prime_code-challenge_sql",
+  "name": "codechallenge4",
   "version": "1.0.0",
   "description": "Code Challenge 5",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
   },
   "author": "antoinette@primeacademy.io",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jemilox/code_challenge-4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jemilox/code_challenge-4/issues"
+  },
+  "homepage": "https://github.com/jemilox/code_challenge-4#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "pg": "^6.1.0"
+  }
 }

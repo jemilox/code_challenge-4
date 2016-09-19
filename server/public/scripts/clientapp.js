@@ -84,6 +84,7 @@ $(document).ready(function () {
   }
 
   function appendTreat(treat) {
+    console.log('im in append treats and we have:', treat.pic);
     // append a treat to the DOM and add data attributes
     // treat-display -> treat row -> treat
     var $treats = $('#treat-display');
@@ -97,7 +98,7 @@ $(document).ready(function () {
 
     var $treat = $('<div class="six columns individual-treat">' +
                   '<div class="image-wrap">' +
-                  '<img src="' + treat.pic + '" class="u-max-full-width" />' +
+                  '<img src="' + treat.imageurl + '" class="u-max-full-width" />' +
                   '<div class="toggle row">' +
                   '<div class="six columns">' +
                   '<button class="edit u-full-width">Edit</button>' +
